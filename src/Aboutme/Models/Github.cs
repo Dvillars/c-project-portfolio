@@ -15,10 +15,10 @@ namespace Aboutme.Models
     {
         public int GithubId { get; set; }
         public string Name { get; set; }
+        public string Language { get; set; }
         public string Html_Url { get; set; }
 
-
-        public static List<Github> GetGithub()
+        public static List<Github> GetGithub(string project)
         {
             var client = new RestClient("https://api.github.com/users");
             var request = new RestRequest("dvillars/starred", Method.GET);
@@ -31,9 +31,9 @@ namespace Aboutme.Models
                 response = await GetResponseContentAsync(client, request) as RestResponse;
             }).Wait();
 
-            var result = JsonConvert.DeserializeObject<JArray>(response.Content);
+            var jsonReply = JsonConvert.DeserializeObject<JArray>(response.Content);
 
-            string jsonOutput = result.ToString();
+            string jsonOutput = jsonReply.ToString();
 
             var githublList = JsonConvert.DeserializeObject<List<Github>>(jsonOutput);
 

@@ -22,7 +22,7 @@
       "type": "build"
     },
     "RestSharp.NetCore": "105.2.3",
-    "Newtonsoft.Json": "10.0.2"
+    "Newtonsoft.Json": "9.0.1"
   },
 
   "tools": {

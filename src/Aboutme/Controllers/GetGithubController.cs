@@ -9,9 +9,9 @@ namespace Aboutme.Controllers
 {
     public class GetGithubController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(string returnedGithubs)
         {
-            var result = Github.GetGithub();
+            var result = Github.GetGithub(returnedGithubs);
             return View(result);
         }
     }

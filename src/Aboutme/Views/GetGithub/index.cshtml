@@ -1,16 +1,19 @@
-﻿@{
-    ViewData["Title"] = "About Me";
+﻿@model IEnumerable<Aboutme.Models.Github>
+@{
+    ViewData["Title"] = "repos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h1>Github Projects</h1>
 
 <div id="result">
+    <hr/>
     
     @foreach (var github in Model)
     {
         <p>Project Name: @github.Name</p>
         <p>Programming Language Used: @github.Language</p>
         <a href="@github.Html_Url">Open the @github.Name repository</a>
+        <hr/>
     }
 </div>
